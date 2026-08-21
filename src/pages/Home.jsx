@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import digitalServicesImg from '../assets/Digital-Services.webp'
-import { ArrowRight, BarChart3, Bot, CheckCircle2, Eye, Mail, MapPin, MessageSquare, Phone, RefreshCw, Star, Target, Timer } from 'lucide-react'
+import corporateImg from '../assets/Corporate.jpg'
+import ecommerceImg from '../assets/eCommerce.jpg'
+import educationImg from '../assets/Education.jpg'
+import logisticsImg from '../assets/Logistics.jpg'
+import saasImg from '../assets/Saas.jpg'
+import cloudImg from '../assets/Cloud.jpg'
+import { ArrowRight, BarChart3, Bot, CheckCircle2, Eye, Mail, MapPin, MessageSquare, Phone, RefreshCw, Target, Timer } from 'lucide-react'
 
 const services = [
   { title: 'Mobile App Development', img: '1519389950473-47ba0277781c' },
@@ -61,17 +67,12 @@ const testimonials = [
 ]
 
 const industries = [
-  { h: 'Healthcare', p: 'HIPAA-compliant apps, patient portals, telemedicine & health data analytics.', img: '1576091160399-112ba8d25d1d' },
-  { h: 'Oil & Gas', p: 'Field management, SCADA integration, pipeline monitoring.', img: '1559510981-10719ce4266a' },
-  { h: 'Fintech', p: 'Payment gateways, trading platforms, blockchain wallets.', img: '1616803140344-6682afb13cda' },
-  { h: 'Real Estate', p: 'Property search, virtual tours, CRM & mortgage tools.', img: '1605146769289-440113cc3d00' },
-  { h: 'Education', p: 'E-learning portals, LMS platforms, AI tutoring systems.', img: '1610484826967-09c5720778c7' },
-]
-
-const team = [
-  { name: 'Abeer S.', role: 'CEO & Co-Founder', mail: 'abeer@expinsoft.com', img: '1614786269829-d24616faf56d' },
-  { name: 'Zain M.', role: 'CTO & Lead Architect', mail: 'zain@expinsoft.com', img: '1718209881007-c0ecdfc00f9d' },
-  { name: 'Sara K.', role: 'Head of Design', mail: 'sara@expinsoft.com', img: '1582896911227-c966f6e7fb93' },
+  { h: 'Corporate', p: 'Business websites, internal tools, and workflow platforms built for scale and reliability.', img: corporateImg },
+  { h: 'Ecommerce', p: 'Storefronts, checkout flows, and inventory systems engineered to convert and grow.', img: ecommerceImg },
+  { h: 'Education', p: 'E-learning portals, LMS platforms, and AI tutoring systems for modern classrooms.', img: educationImg },
+  { h: 'Logistics', p: 'Fleet tracking, warehouse management, and supply chain visibility in real time.', img: logisticsImg },
+  { h: 'SaaS', p: 'Multi-tenant platforms, subscription billing, and product-led growth infrastructure.', img: saasImg },
+  { h: 'Cloud', p: 'Cloud migration, DevOps automation, and scalable infrastructure across AWS, Azure & GCP.', img: cloudImg },
 ]
 
 const engagements = [
@@ -280,47 +281,12 @@ export default function Home() {
           <div className="ind-grid">
             {industries.map(ind => (
               <div key={ind.h} className="ind">
-                <img src={`https://images.unsplash.com/photo-${ind.img}?w=800&q=80`} alt={ind.h} loading="lazy" />
+                <img src={ind.img} alt={ind.h} loading="lazy" />
                 <div className="ov" />
                 <h3>{ind.h}</h3>
                 <p>{ind.p}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="sec team-sec">
-        <div className="wrap">
-          <div className="team-card">
-            <div className="head">
-              <p className="eyebrow" style={{ color: 'var(--orange)' }}>Meet the Team</p>
-              <h2>The People Behind the Products</h2>
-              <p>A multidisciplinary team of engineers, designers, and strategists who've collectively shipped 800+ digital products.</p>
-            </div>
-            <div className="team-grid">
-              {team.map(m => (
-                <div key={m.name} className="member">
-                  <div className="ph">
-                    <img src={`https://images.unsplash.com/photo-${m.img}?w=300&q=80`} alt={m.name} loading="lazy" />
-                  </div>
-                  <div className="info">
-                    <h4>{m.name}</h4>
-                    <p className="role">{m.role}</p>
-                    <p className="mail">{m.mail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="stats">
-              {[['800+','Projects Delivered'],['98%','Client Retention'],['10','Years of Excellence'],['4.8/5','Client Rating']].map(([b,s]) => (
-                <div key={b} className="stat">
-                  <div className="ic"><Star size={18} strokeWidth={1.75} /></div>
-                  <div><b>{b}</b><span>{s}</span></div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

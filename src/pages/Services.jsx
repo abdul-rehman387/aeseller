@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom'
 import ConsultForm from '../components/ConsultForm'
 import PricingSection from '../components/PricingSection'
 import { ArrowRight } from 'lucide-react'
+import webDesignImg from '../assets/web-design.jpg'
+import webDevImg from '../assets/digital-idea.jpg'
+import appDevImg from '../assets/mobile-app-development.webp'
+import ecommerceDevImg from '../assets/eCommerce.jpg'
+import uiuxImg from '../assets/UIUX-design.webp'
+import graphicDesignImg from '../assets/Graphic-Design.jpg'
 
 const unsplash = (id) => `https://images.unsplash.com/photo-${id}?w=600&q=80`
 
@@ -9,12 +15,12 @@ const serviceGroups = [
   {
     cat: 'Core Digital Services',
     items: [
-      { h: 'Web Design', img: '1558655146-d09347e92766' },
-      { h: 'Web Development', img: '1522202176988-66273c2fd55f' },
-      { h: 'App Development', img: '1519389950473-47ba0277781c' },
-      { h: 'E-Commerce Development', img: '1601924994987-69e26d50dc26' },
-      { h: 'UI/UX Design', img: '1607082348824-0a96f2a4b9da' },
-      { h: 'Graphic Design', img: '1626785774573-4b799315345d' },
+      { h: 'Web Design', src: webDesignImg },
+      { h: 'Web Development', src: webDevImg },
+      { h: 'App Development', src: appDevImg },
+      { h: 'E-Commerce Development', src: ecommerceDevImg },
+      { h: 'UI/UX Design', src: uiuxImg },
+      { h: 'Graphic Design', src: graphicDesignImg },
     ],
   },
   {
@@ -190,7 +196,7 @@ export default function Services() {
           <div className="svc-sec">
             <span className="ghost">WHAT WE OFFER</span>
             <h2>Every Service, One Team</h2>
-            <p style={{ color: 'var(--slate)', maxWidth: 760, marginTop: -12, marginBottom: 20 }}>
+            <p style={{ position: 'relative', zIndex: 1, color: 'var(--slate)', maxWidth: 760, marginTop: -12, marginBottom: 20 }}>
               From your first landing page to a full custom platform - explore our complete service
               catalog, organized by what you're trying to accomplish.
             </p>
@@ -202,7 +208,7 @@ export default function Services() {
               <div className="svc-grid svc-grid-catalog">
                 {group.items.map(s => (
                   <Link key={s.h} to="/services" className="svc">
-                    <img src={unsplash(s.img)} alt={s.h} loading="lazy" />
+                    <img src={s.src || unsplash(s.img)} alt={s.h} loading="lazy" />
                     <div className="ov" />
                     <h3>{s.h}</h3>
                     <span className="arr"><ArrowRight size={16} strokeWidth={2} /></span>

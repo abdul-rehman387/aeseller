@@ -16,6 +16,7 @@ const projects = [
   { title: 'Arizona Globals', desc: 'Corporate consulting website with service showcases, team profiles, and lead-generation contact flows for a global business advisory firm.', cat: 'corporate', img: '/portfolio/Mockup-Arizona-Globals.jpg', status: 'Live Site', tech: ['WordPress', 'Elementor', 'PHP', 'MySQL'], detailUrl: 'https://arizonaglobals.com/' },
   { title: 'The Work Frame', desc: 'Ergonomic home-office gear storefront with category browsing, a build-your-setup configurator, and a streamlined checkout.', cat: 'ecommerce', img: '/portfolio/Mockup-The-Work-Frame-eCommerce-Store.png', status: 'Live Site', tech: ['Shopify', 'Liquid', 'JavaScript', 'Stripe'], detailUrl: 'https://theworkframe.com/' },
   { title: 'VerdaraFarm', desc: 'Direct-to-consumer vertical hydroponic gardening storefront with curated grow-system collections, category browsing, and a streamlined checkout.', cat: 'ecommerce', img: '/portfolio/verdarafarm.png', status: 'Live Site', tech: ['Shopify', 'Liquid', 'JavaScript', 'Stripe'], detailUrl: 'https://verdarafarm.com' },
+  { title: 'AkFinTaxAdvisors', desc: 'Corporate website for a financial and tax advisory firm, showcasing service offerings, client resources, and a streamlined consultation booking flow.', cat: 'corporate', img: '/portfolio/akfintaxadvisors.png', status: 'Live Site', tech: ['WordPress', 'PHP', 'MySQL', 'SEO'], detailUrl: 'https://akfintaxadvisors.com/' },
 ]
 
 const clients = [
