@@ -72,7 +72,7 @@ export default function Industries() {
           <div className="head">
             <p className="eyebrow" style={{ color: 'var(--orange)' }}>Where We Go Deep</p>
             <h2 style={{ color: '#fff' }}>Verticals We Know Inside Out</h2>
-            <p>Five industries where ExpinSoft has shipped repeat, production-grade work for enterprise and startup clients alike.</p>
+            <p>Five industries where AE Seller has shipped repeat, production-grade work for enterprise and startup clients alike.</p>
           </div>
           <div className="ind-grid">
             {spotlight.map(ind => (

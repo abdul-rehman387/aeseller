@@ -7,24 +7,25 @@ import educationImg from '../assets/Education.jpg'
 import logisticsImg from '../assets/Logistics.jpg'
 import saasImg from '../assets/Saas.jpg'
 import cloudImg from '../assets/Cloud.jpg'
-import { ArrowRight, BarChart3, Bot, CheckCircle2, Eye, Mail, MapPin, MessageSquare, Phone, RefreshCw, Target, Timer } from 'lucide-react'
+import { CONTACT_EMAIL, INFO_EMAIL } from '../data/contact'
+import { ArrowRight, Bot, ChartLine, CheckCircle2, Mail, MapPin, MessageSquare, Phone, RefreshCw, Target, Timer, Workflow } from 'lucide-react'
 
 const services = [
-  { title: 'Mobile App Development', img: '1519389950473-47ba0277781c' },
-  { title: 'Custom Software Dev', img: '1515879218367-8466d910aaa4' },
-  { title: 'Artificial Intelligence', img: '1697577418970-95d99b5a55cf' },
-  { title: 'Web Development', img: '1542831371-29b0f74f9713' },
-  { title: 'Cloud Services', img: '1695668548342-c0c1ad479aee' },
-  { title: 'Blockchain Dev', img: '1640161704729-cbe966a08476' },
-  { title: 'Game Development', img: '1542751371-adc38448a05e' },
-  { title: 'Digital Marketing', img: '1557838923-2985c318be48' },
+  { title: 'AI Agents & Chatbots', img: '1677442136019-21780ecad995', href: '/ai-agents-chatbots' },
+  { title: 'Workflow Automation', img: '1551288049-bebda4e38f71', href: '/workflow-automation' },
+  { title: 'Telegram / Discord Bots', img: '1611926653458-09294b3142bf', href: '/telegram-discord-bots' },
+  { title: 'Crypto Trading Bots', img: '1642790106117-e829e14a795f', href: '/crypto-trading-bots' },
+  { title: 'Mining & Node Tools', img: '1558494949-ef010cbdcc31', href: '/mining-node-tools' },
+  { title: 'Web Development', img: '1542831371-29b0f74f9713', href: '/react-nextjs-development' },
+  { title: 'Mobile App Development', img: '1519389950473-47ba0277781c', href: '/mobile-app-development' },
+  { title: 'Custom Software Dev', img: '1515879218367-8466d910aaa4', href: '/enterprise-software' },
 ]
 
 const cases = [
   {
     label: 'Digital Services',
     h: 'Full-Spectrum Digital Services, One Partner',
-    desc: 'From web and mobile platforms to AI-powered automation - ExpinSoft delivers end-to-end digital services under one roof, so you never have to stitch together multiple vendors to ship a product.',
+    desc: 'From web and mobile platforms to AI-powered automation - AE Seller delivers end-to-end digital services under one roof, so you never have to stitch together multiple vendors to ship a product.',
     impact: ['40+ digital services under one roof', '15+ industries served worldwide', 'Dedicated senior engineers on every build'],
     img: digitalServicesImg,
     tag: 'Digital Services / Full-Stack',
@@ -42,7 +43,7 @@ const cases = [
 const testimonials = [
   {
     stars: '★★★★★',
-    quote: 'ExpinSoft\'s team felt like an extension of ours. They delivered a production-grade pipeline app on time, under budget, and with zero surprises.',
+    quote: 'AE Seller\'s team felt like an extension of ours. They delivered a production-grade pipeline app on time, under budget, and with zero surprises.',
     name: 'Bob Gammon', role: 'VP Engineering, Kinder Morgan',
     face: '1676989880361-091e12efc056',
   },
@@ -60,7 +61,7 @@ const testimonials = [
   },
   {
     stars: '★★★★★',
-    quote: 'We evaluated four agencies before ExpinSoft. None came close on technical depth or how quickly they got up to speed on our domain.',
+    quote: 'We evaluated four agencies before AE Seller. None came close on technical depth or how quickly they got up to speed on our domain.',
     name: 'Farah Al-Sayed', role: 'Head of Digital, Saudi Bell',
     face: '1573497019940-1c28c88b4f3e',
   },
@@ -91,10 +92,10 @@ const blogs = [
 ]
 
 const aiFeats = [
-  { ic: Bot, label: 'ML Models' },
-  { ic: Eye, label: 'Computer Vision' },
-  { ic: MessageSquare, label: 'NLP / ChatBots' },
-  { ic: BarChart3, label: 'Predictive Analytics' },
+  { ic: Bot, label: 'AI Agents' },
+  { ic: Workflow, label: 'Workflow Automation' },
+  { ic: MessageSquare, label: 'Community Bots' },
+  { ic: ChartLine, label: 'Trading Bots' },
 ]
 
 export default function Home() {
@@ -112,9 +113,9 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="hero-ov" />
         <div className="wrap">
-          <p className="eyebrow orange">Award-Winning Software Development</p>
-          <h1>Engineering Intelligent Digital Products</h1>
-          <p className="hero-lead">ExpinSoft partners with startups and Fortune 500 companies to deliver mobile apps, enterprise software, AI solutions, and cloud platforms that drive real results.</p>
+          <p className="eyebrow orange">AI & Web3 Automation Agency</p>
+          <h1>AI Agents, Bots & Automation That Work for You</h1>
+          <p className="hero-lead">AE Seller builds custom AI agents, Telegram and Discord bots, workflow automations, and Web3 tooling that run your operations around the clock - alongside the web and mobile products that power them.</p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <Link to="/services" className="btn">Explore Services</Link>
             <Link to="/portfolio" className="btn btn-ghost">View Portfolio</Link>
@@ -136,12 +137,12 @@ export default function Home() {
         <div className="wrap">
           <div className="head">
             <p className="eyebrow orange">What We Build</p>
-            <h2>End-to-End Software Services</h2>
-            <p>From mobile apps to enterprise platforms - we cover the full technology stack so you don't have to manage multiple vendors.</p>
+            <h2>AI, Automation & Web3 Services</h2>
+            <p>From autonomous AI agents to crypto trading bots - plus the web and mobile platforms around them - one team covers the full stack.</p>
           </div>
           <div className="svc-grid">
             {services.map(s => (
-              <Link key={s.title} to="/services" className="svc">
+              <Link key={s.title} to={s.href} className="svc">
                 <img src={`https://images.unsplash.com/photo-${s.img}?w=600&q=80`} alt={s.title} loading="lazy" />
                 <div className="ov" />
                 <h3>{s.title}</h3>
@@ -216,16 +217,17 @@ export default function Home() {
       <section className="sec" style={{ background: 'var(--gray-bg)' }}>
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow orange">AI & Machine Learning</p>
-            <h2>Intelligence Built Into Every Product</h2>
+            <p className="eyebrow orange">AI & Web3 Automation</p>
+            <h2>Automation That Runs Your Business 24/7</h2>
           </div>
           <div className="ai-wrap">
             <div className="ai-side">
               {[
-                { h: 'Machine Learning', p: 'Custom-trained models that predict, forecast, and automate decisions.', href: '/machine-learning' },
-                { h: 'Computer Vision', p: 'Real-time detection, tracking, and automated visual inspection.', href: '/computer-vision' },
-                { h: 'NLP Solutions', p: 'Chatbots, document intelligence, and language-aware search.', href: '/nlp-solutions' },
-                { h: 'AI Consulting', p: 'Roadmaps and strategy to find your highest-ROI AI use cases.', href: '/ai-consulting' },
+                { h: 'AI Agents & Chatbots', p: 'Agents and assistants trained on your business that answer, qualify, and act.', href: '/ai-agents-chatbots' },
+                { h: 'Workflow Automation', p: 'n8n, Make, and custom pipelines with AI steps that remove busywork.', href: '/workflow-automation' },
+                { h: 'Telegram / Discord Bots', p: 'Moderation, alerts, AI assistants, and paid access for your community.', href: '/telegram-discord-bots' },
+                { h: 'Crypto Trading Bots', p: 'Your strategy executed 24/7 with backtesting and hard risk limits.', href: '/crypto-trading-bots' },
+                { h: 'Mining & Node Tools', p: 'Node deployment, validator monitoring, and mining fleet dashboards.', href: '/mining-node-tools' },
               ].map((it, i) => (
                 <Link key={it.h} to={it.href} className={`item${i === 0 ? ' active' : ''}`}>
                   <h4>{it.h}</h4>
@@ -237,8 +239,8 @@ export default function Home() {
               </div>
             </div>
             <div className="ai-main">
-              <h3>Transform Your Business with AI</h3>
-              <p>We embed machine learning, predictive analytics, and generative AI into your software so it doesn't just work - it learns and improves over time.</p>
+              <h3>Put AI and Automation to Work</h3>
+              <p>We design agents, bots, and automated workflows around your real processes - connected to your tools, monitored in production, and fully owned by you.</p>
               <div className="ai-feats">
                 {aiFeats.map(f => (
                   <div key={f.label} className="ai-feat">
@@ -386,7 +388,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="cinfo">
-                <div><span className="ic"><Mail size={18} strokeWidth={1.75} /></span> info@expinsoft.com</div>
+                <div><span className="ic"><Mail size={18} strokeWidth={1.75} /></span> <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a></div>
+                <div><span className="ic"><Mail size={18} strokeWidth={1.75} /></span> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></div>
                 <div><span className="ic"><Phone size={18} strokeWidth={1.75} /></span> +1 (832) 555-0190</div>
                 <div><span className="ic"><MapPin size={18} strokeWidth={1.75} /></span> Coquitlam, Canada - Karachi, Pakistan</div>
               </div>

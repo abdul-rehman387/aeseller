@@ -11,7 +11,7 @@ export default function PayPalCheckoutButton({ amount, planName, onSuccess, onEr
         style={{ layout: 'vertical', color: 'blue', shape: 'pill', label: 'pay' }}
         createOrder={(data, actions) => actions.order.create({
           purchase_units: [{
-            description: `ExpinSoft - ${planName} Plan`,
+            description: `AE Seller - ${planName} Plan`,
             amount: { value: amount.toFixed(2), currency_code: 'USD' },
           }],
         })}

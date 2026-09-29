@@ -35,9 +35,9 @@ const portfolioCases = [
 ]
 
 const testimonials = [
-  { name: 'Bob Gammon', role: 'VP Engineering, Kinder Morgan', stars: '★★★★★', quote: 'ExpinSoft delivered a production-grade pipeline app that our engineers rely on daily. Zero bugs in production in 18 months.', face: '1676989880361-091e12efc056' },
+  { name: 'Bob Gammon', role: 'VP Engineering, Kinder Morgan', stars: '★★★★★', quote: 'AE Seller delivered a production-grade pipeline app that our engineers rely on daily. Zero bugs in production in 18 months.', face: '1676989880361-091e12efc056' },
   { name: 'Anna Palko', role: 'CTO, Tamreeni Health', stars: '★★★★★', quote: 'Their mobile team understood our HIPAA requirements on day one. The app launched on time and handled 10x our projected load.', face: '1604904612715-47bf9d9bc670' },
-  { name: 'Keith Cascarelli', role: 'CEO, Rise Up Kings', stars: '★★★★★', quote: 'I\'ve worked with 4 app agencies. ExpinSoft is the only one that treated my product like their own. Outstanding.', face: '1607990283143-e81e7a2c9349' },
+  { name: 'Keith Cascarelli', role: 'CEO, Rise Up Kings', stars: '★★★★★', quote: 'I\'ve worked with 4 app agencies. AE Seller is the only one that treated my product like their own. Outstanding.', face: '1607990283143-e81e7a2c9349' },
 ]
 
 const stackData = {
@@ -96,13 +96,13 @@ export default function MobileApp() {
         </div>
       </div>
 
-      {/* WHY EXPINSOFT */}
+      {/* WHY AE SELLER */}
       <section className="sec">
         <div className="wrap">
           <div className="twocol">
             <div>
               <p className="eyebrow orange" style={{ marginBottom: 14 }}>Why Choose Us</p>
-              <h2>Why ExpinSoft for Mobile App Development?</h2>
+              <h2>Why AE Seller for Mobile App Development?</h2>
               <p style={{ marginTop: 16 }}>
                 We've shipped 800+ mobile apps across every major industry. Our engineers are App Store veterans who
                 understand what it takes to launch successfully - and keep users coming back.

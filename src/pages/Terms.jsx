@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
+import { INFO_EMAIL } from '../data/contact'
 
 const sections = [
   {
     h2: 'Acceptance of Terms',
     body: [
-      'By accessing or using the ExpinSoft website, requesting a quote, or engaging us for services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our site or services.',
+      'By accessing or using the AE Seller website, requesting a quote, or engaging us for services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our site or services.',
     ],
   },
   {
@@ -17,7 +18,7 @@ const sections = [
     h2: 'Intellectual Property Rights',
     body: [
       'Unless otherwise agreed in a signed statement of work, all code, designs, and deliverables created for a client as part of a paid engagement become the property of that client upon full payment.',
-      'All other content on this website - including our branding, logos, articles, and site design - remains the property of ExpinSoft and may not be reproduced without permission.',
+      'All other content on this website - including our branding, logos, articles, and site design - remains the property of AE Seller and may not be reproduced without permission.',
     ],
   },
   {
@@ -36,7 +37,7 @@ const sections = [
   {
     h2: 'Limitation of Liability',
     body: [
-      'To the maximum extent permitted by law, ExpinSoft will not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability for any claim arising from a paid engagement is limited to the amount actually paid by the client for the specific service giving rise to the claim.',
+      'To the maximum extent permitted by law, AE Seller will not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability for any claim arising from a paid engagement is limited to the amount actually paid by the client for the specific service giving rise to the claim.',
     ],
   },
   {
@@ -48,7 +49,7 @@ const sections = [
   {
     h2: 'Governing Law',
     body: [
-      'These Terms are governed by the laws of the jurisdiction in which ExpinSoft is registered to do business, without regard to conflict-of-law principles.',
+      'These Terms are governed by the laws of the jurisdiction in which AE Seller is registered to do business, without regard to conflict-of-law principles.',
     ],
   },
   {
@@ -86,7 +87,7 @@ export default function Terms() {
             ))}
             <h2>Contact Us</h2>
             <p>
-              Questions about these Terms? Reach out at <a href="mailto:info@expinsoft.com">info@expinsoft.com</a>.
+              Questions about these Terms? Reach out at <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a>.
             </p>
           </div>
         </div>

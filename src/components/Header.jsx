@@ -1,9 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '../assets/ExpinSoft-Logo-header.png'
+import logo from '../assets/AE-Seller-Logo.png'
 import QuoteModal from './QuoteModal'
 
 const megaLinks = [
+  {
+    cat: 'AI & Web3 Automation',
+    href: '/services',
+    hot: true,
+    links: [
+      { label: 'Custom AI Agents & Chatbots', href: '/ai-agents-chatbots' },
+      { label: 'Workflow Automation', href: '/workflow-automation' },
+      { label: 'Telegram / Discord Bots', href: '/telegram-discord-bots' },
+      { label: 'Crypto Trading Bots', href: '/crypto-trading-bots' },
+      { label: 'Mining & Node Tools', href: '/mining-node-tools' },
+    ]
+  },
   {
     cat: 'Mobile App Development',
     href: '/mobile-app-development',
@@ -32,16 +44,6 @@ const megaLinks = [
       { label: 'Node.js Back-End', href: '/nodejs-development' },
       { label: 'E-Commerce', href: '/ecommerce-development' },
       { label: 'CMS Solutions', href: '/cms-solutions' },
-    ]
-  },
-  {
-    cat: 'Artificial Intelligence',
-    href: '/services',
-    links: [
-      { label: 'Machine Learning', href: '/machine-learning' },
-      { label: 'Computer Vision', href: '/computer-vision' },
-      { label: 'NLP Solutions', href: '/nlp-solutions' },
-      { label: 'AI Consulting', href: '/ai-consulting' },
     ]
   },
   {
@@ -113,7 +115,7 @@ export default function Header() {
       <div className="wrap">
         <nav className="nav">
           <Link to="/" className="logo">
-            <img src={logo} alt="ExpinSoft" />
+            <img src={logo} alt="AE Seller Center" />
           </Link>
 
           <div className={`menu${menuOpen ? ' open' : ''}`}>
@@ -133,6 +135,7 @@ export default function Header() {
             <Link to="/technologies" className={isActive('/technologies')}>Technologies</Link>
             <Link to="/insights" className={isActive('/insights')}>Insights</Link>
             <Link to="/portfolio" className={isActive('/portfolio')}>Portfolio</Link>
+            <Link to="/about" className={isActive('/about')}>About Us</Link>
             <button className="btn btn-sm hide-mobile" style={{marginLeft:8}} onClick={() => setQuoteOpen(true)}>Get a Quote</button>
             <button className="btn mobile-cta" onClick={() => setQuoteOpen(true)}>Get a Quote</button>
           </div>
@@ -155,17 +158,20 @@ export default function Header() {
         <div className="wrap">
           <div className="mega-inner">
             <div className="mega-promo">
-              <h3>Build Something Great</h3>
-              <p>From idea to launch - ExpinSoft engineers intelligent digital products that scale.</p>
+              <h3>Put AI to Work</h3>
+              <p>AE Seller builds AI agents, bots, and automations that run your operations around the clock.</p>
               <img
-                src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=480&q=80"
-                alt="Team at work"
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=480&q=80"
+                alt="AI automation"
               />
+              <Link to="/ai-agents-chatbots" className="btn btn-sm">Explore AI Services</Link>
             </div>
             <div className="mega-cols">
               {megaLinks.map((col) => (
-                <div key={col.cat} className="mega-col-group">
-                  <Link to={col.href} className="mega-cat">{col.cat}</Link>
+                <div key={col.cat} className={`mega-col-group${col.hot ? ' hot' : ''}`}>
+                  <Link to={col.href} className="mega-cat">
+                    {col.cat}{col.hot && <span className="mega-new">NEW</span>}
+                  </Link>
                   <ul className="mega-links">
                     {col.links.map((l) => {
                       const label = typeof l === 'string' ? l : l.label

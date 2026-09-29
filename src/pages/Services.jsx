@@ -13,6 +13,16 @@ const unsplash = (id) => `https://images.unsplash.com/photo-${id}?w=600&q=80`
 
 const serviceGroups = [
   {
+    cat: 'AI & Web3 Automation',
+    items: [
+      { h: 'Custom AI Agents & Chatbots', img: '1677442136019-21780ecad995', href: '/ai-agents-chatbots' },
+      { h: 'Workflow Automation', img: '1551288049-bebda4e38f71', href: '/workflow-automation' },
+      { h: 'Telegram / Discord Bots', img: '1611926653458-09294b3142bf', href: '/telegram-discord-bots' },
+      { h: 'Crypto Trading Bots', img: '1642790106117-e829e14a795f', href: '/crypto-trading-bots' },
+      { h: 'Mining & Node Tools', img: '1558494949-ef010cbdcc31', href: '/mining-node-tools' },
+    ],
+  },
+  {
     cat: 'Core Digital Services',
     items: [
       { h: 'Web Design', src: webDesignImg },
@@ -31,16 +41,6 @@ const serviceGroups = [
       { h: 'Social Media Marketing', img: '1611926653458-09294b3142bf' },
       { h: 'Content Marketing', img: '1499951360447-b19be8fe80f5' },
       { h: 'Email Marketing', img: '1596526131083-e8c633c948d2' },
-    ],
-  },
-  {
-    cat: 'AI & Advanced Services',
-    items: [
-      { h: 'AI Tools Development', img: '1526374965328-7f61d4dc18c5' },
-      { h: 'AI Automation', img: '1550751827-4bd374c3f58b' },
-      { h: 'Chatbot Development', img: '1620712943543-bcc4688e7485' },
-      { h: 'Machine Learning Solutions', img: '1516110833967-0b5716ca1387' },
-      { h: 'Data Analysis & Insights', img: '1460925895917-afdab827c52f' },
     ],
   },
   {
@@ -118,9 +118,9 @@ const serviceGroups = [
     cat: 'Smart & AI-Based Software',
     items: [
       { h: 'AI CRM Systems', img: '1541746972996-4e0b0f43e02a' },
-      { h: 'Chatbot Systems', img: '1517245386807-bb43f82c33c4' },
+      { h: 'Chatbot Systems', img: '1517245386807-bb43f82c33c4', href: '/ai-agents-chatbots' },
       { h: 'AI Content Generator Tools', img: '1531297484001-80022131f5a1' },
-      { h: 'Automation Software (Workflows / n8n)', img: '1519494026892-80bbd2d6fd0d' },
+      { h: 'Automation Software (Workflows / n8n)', img: '1519494026892-80bbd2d6fd0d', href: '/workflow-automation' },
       { h: 'Analytics & Business Intelligence Dashboards', img: '1556740758-90de374c12ad' },
     ],
   },
@@ -163,10 +163,10 @@ export default function Services() {
                 <span className="cur">Services</span>
               </p>
               <p className="eyebrow orange" style={{ marginBottom: 14 }}>What We Do</p>
-              <h1>Full-Spectrum Software Development Services</h1>
+              <h1>AI, Automation & Software Development Services</h1>
               <p className="lead">
-                From a mobile app MVP to a Fortune 500 enterprise platform - ExpinSoft delivers
-                engineered software solutions that scale, perform, and delight users.
+                From autonomous AI agents and trading bots to full web and mobile platforms - AE Seller
+                builds automation and software that scale, perform, and keep working while you sleep.
               </p>
               <div className="pillars">
                 {['800+ Projects Shipped','10+ Years Experience','98% On-Time Delivery','4.8★ Clutch Rating'].map(p => (
@@ -207,7 +207,7 @@ export default function Services() {
               <h3 className="svc-group-h">{group.cat}</h3>
               <div className="svc-grid svc-grid-catalog">
                 {group.items.map(s => (
-                  <Link key={s.h} to="/services" className="svc">
+                  <Link key={s.h} to={s.href || '/services'} className="svc">
                     <img src={s.src || unsplash(s.img)} alt={s.h} loading="lazy" />
                     <div className="ov" />
                     <h3>{s.h}</h3>

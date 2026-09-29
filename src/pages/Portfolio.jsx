@@ -83,7 +83,7 @@ export default function Portfolio() {
               <p style={{ color: 'var(--orange)', fontFamily: 'Poppins', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 8 }}>FinTech / SaaS</p>
               <h3>FinTrack - From Idea to $580K+ ARR in 12 Months</h3>
               <p>
-                ExpinSoft designed and built FinTrack's entire fintech-grade analytics platform - a
+                AE Seller designed and built FinTrack's entire fintech-grade analytics platform - a
                 multi-tenant AI-powered financial analytics solution that processes $600K+ in monthly
                 transactions. MVP delivered in 4 months, scaled to 50,000+ concurrent users.
               </p>

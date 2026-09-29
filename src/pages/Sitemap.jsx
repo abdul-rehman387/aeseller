@@ -10,6 +10,7 @@ const columns = [
       { label: 'Technologies', href: '/technologies' },
       { label: 'Insights / Blog', href: '/insights' },
       { label: 'Portfolio', href: '/portfolio' },
+      { label: 'About Us', href: '/about' },
       { label: 'Contact Us', href: '/contact' },
     ],
   },
@@ -24,6 +25,16 @@ const columns = [
       { label: 'SaaS Development', href: '/saas-development' },
       { label: 'Legacy Modernization', href: '/legacy-modernization' },
       { label: 'API Integration', href: '/api-integration' },
+    ],
+  },
+  {
+    h: 'AI & Web3 Automation',
+    links: [
+      { label: 'Custom AI Agents & Chatbots', href: '/ai-agents-chatbots' },
+      { label: 'Workflow Automation', href: '/workflow-automation' },
+      { label: 'Telegram / Discord Bots', href: '/telegram-discord-bots' },
+      { label: 'Crypto Trading Bots', href: '/crypto-trading-bots' },
+      { label: 'Mining & Node Tools', href: '/mining-node-tools' },
     ],
   },
   {
@@ -57,7 +68,7 @@ export default function Sitemap() {
           </p>
           <p className="eyebrow orange" style={{ marginBottom: 14 }}>Directory</p>
           <h1>Sitemap</h1>
-          <p className="lead">Every page on the ExpinSoft site, organized in one place.</p>
+          <p className="lead">Every page on the AE Seller site, organized in one place.</p>
         </div>
       </section>
 

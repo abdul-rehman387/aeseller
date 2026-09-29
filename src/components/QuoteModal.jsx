@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CheckCircle2, X } from 'lucide-react'
-
-const services = [
-  'Mobile App Development', 'Custom Software Development', 'Web Development',
-  'Artificial Intelligence', 'Blockchain Development', 'Cloud Services',
-  'Game Development', 'Digital Marketing', 'Staff Augmentation', 'IT Consulting',
-]
+import { SERVICE_OPTIONS as services } from '../data/contact'
 
 export default function QuoteModal({ onClose }) {
   const [sent, setSent] = useState(false)

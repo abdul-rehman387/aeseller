@@ -25,6 +25,11 @@ import MachineLearning from './pages/MachineLearning'
 import ComputerVision from './pages/ComputerVision'
 import NlpSolutions from './pages/NlpSolutions'
 import AiConsulting from './pages/AiConsulting'
+import AiAgentsChatbots from './pages/AiAgentsChatbots'
+import WorkflowAutomation from './pages/WorkflowAutomation'
+import TelegramDiscordBots from './pages/TelegramDiscordBots'
+import CryptoTradingBots from './pages/CryptoTradingBots'
+import MiningNodeTools from './pages/MiningNodeTools'
 import SmartContracts from './pages/SmartContracts'
 import DefiPlatforms from './pages/DefiPlatforms'
 import NftMarketplace from './pages/NftMarketplace'
@@ -42,6 +47,7 @@ import PpcAdvertising from './pages/PpcAdvertising'
 import SocialMediaMarketing from './pages/SocialMediaMarketing'
 import BrandStrategy from './pages/BrandStrategy'
 import Contact from './pages/Contact'
+import About from './pages/About'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Sitemap from './pages/Sitemap'
@@ -81,6 +87,11 @@ export default function App() {
         <Route path="/computer-vision" element={<ComputerVision />} />
         <Route path="/nlp-solutions" element={<NlpSolutions />} />
         <Route path="/ai-consulting" element={<AiConsulting />} />
+        <Route path="/ai-agents-chatbots" element={<AiAgentsChatbots />} />
+        <Route path="/workflow-automation" element={<WorkflowAutomation />} />
+        <Route path="/telegram-discord-bots" element={<TelegramDiscordBots />} />
+        <Route path="/crypto-trading-bots" element={<CryptoTradingBots />} />
+        <Route path="/mining-node-tools" element={<MiningNodeTools />} />
         <Route path="/smart-contracts" element={<SmartContracts />} />
         <Route path="/defi-platforms" element={<DefiPlatforms />} />
         <Route path="/nft-marketplace" element={<NftMarketplace />} />
@@ -97,6 +108,7 @@ export default function App() {
         <Route path="/ppc-advertising" element={<PpcAdvertising />} />
         <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
         <Route path="/brand-strategy" element={<BrandStrategy />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />

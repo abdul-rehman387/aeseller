@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { INFO_EMAIL } from '../data/contact'
 
 const sections = [
   {
@@ -61,7 +62,7 @@ export default function Privacy() {
           </p>
           <p className="eyebrow orange" style={{ marginBottom: 14 }}>Legal</p>
           <h1>Privacy Policy</h1>
-          <p className="lead">Last updated: January 2026. This policy explains what information ExpinSoft collects, how we use it, and the choices you have.</p>
+          <p className="lead">Last updated: January 2026. This policy explains what information AE Seller collects, how we use it, and the choices you have.</p>
         </div>
       </section>
 
@@ -77,7 +78,7 @@ export default function Privacy() {
             <h2>Contact Us</h2>
             <p>
               If you have questions about this Privacy Policy or want to exercise your data rights, contact us
-              at <a href="mailto:info@expinsoft.com">info@expinsoft.com</a>.
+              at <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a>.
             </p>
           </div>
         </div>

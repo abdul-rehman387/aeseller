@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone } from 'lucide-react'
-import logo from '../assets/ExpinSoft-Logo-header.png'
+import logo from '../assets/AE-Seller-Logo-light.png'
+import { CONTACT_EMAIL, INFO_EMAIL } from '../data/contact'
 
 const services = [
+  { label: 'AI Agents & Chatbots', href: '/ai-agents-chatbots' },
+  { label: 'Workflow Automation', href: '/workflow-automation' },
+  { label: 'Telegram / Discord Bots', href: '/telegram-discord-bots' },
+  { label: 'Crypto Trading Bots', href: '/crypto-trading-bots' },
+  { label: 'Mining & Node Tools', href: '/mining-node-tools' },
   { label: 'Mobile App Development', href: '/mobile-app-development' },
-  { label: 'Enterprise Software', href: '/enterprise-software' },
   { label: 'SaaS Development', href: '/saas-development' },
   { label: 'React / Next.js', href: '/react-nextjs-development' },
   { label: 'E-Commerce Development', href: '/ecommerce-development' },
-  { label: 'Machine Learning', href: '/machine-learning' },
   { label: 'Smart Contracts', href: '/smart-contracts' },
-  { label: 'AWS Solutions', href: '/aws-solutions' },
-  { label: 'Unity 3D Games', href: '/unity-3d-games' },
-  { label: 'SEO / Content', href: '/seo-content' },
 ]
 const technologies = [
   'React / React Native','Node.js','Python','Java','.NET / C#',
@@ -44,7 +45,7 @@ export default function Footer() {
           </div>
           <div className="fcol">
             <h4>Company</h4>
-            <Link to="/">About ExpinSoft</Link>
+            <Link to="/about">About AE Seller</Link>
             <Link to="/">Careers</Link>
             <Link to="/insights">Blog & Insights</Link>
             <Link to="/portfolio">Portfolio</Link>
@@ -60,15 +61,16 @@ export default function Footer() {
             <span>Karachi, Pakistan</span>
           </div>
           <div className="loc-meta">
-            <span><Mail size={16} strokeWidth={1.75} /> info@expinsoft.com</span>
+            <a href={`mailto:${INFO_EMAIL}`}><Mail size={16} strokeWidth={1.75} /> {INFO_EMAIL}</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}><Mail size={16} strokeWidth={1.75} /> {CONTACT_EMAIL}</a>
             <span><Phone size={16} strokeWidth={1.75} /> +1 (832) 555-0190</span>
           </div>
         </div>
 
         <div className="fbottom">
           <div className="fbottom-brand">
-            <img src={logo} alt="ExpinSoft" className="fbottom-logo" />
-            <p>© ExpinSoft 2026. All rights reserved.</p>
+            <img src={logo} alt="AE Seller Center" className="fbottom-logo" />
+            <p>© AE Seller 2026. All rights reserved.</p>
           </div>
           <div className="links">
             <Link to="/privacy">Privacy Policy</Link>

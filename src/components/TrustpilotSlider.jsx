@@ -31,7 +31,7 @@ export default function TrustpilotSlider() {
           </div>
           <div className="tp-badge-text">
             <b>Excellent</b>
-            <span>ExpinSoft is rated Excellent on <span className="tp-brand-inline">Trustpilot</span></span>
+            <span>AE Seller is rated Excellent on <span className="tp-brand-inline">Trustpilot</span></span>
           </div>
         </div>
         <span className="tp-rating">4.8 out of 5 · Sample reviews for illustration</span>
