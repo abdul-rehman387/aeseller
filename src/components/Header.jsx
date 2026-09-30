@@ -20,8 +20,8 @@ const megaLinks = [
     cat: 'Mobile App Development',
     href: '/mobile-app-development',
     links: [
-      'iOS App Development',
-      'Android App Development',
+      { label: 'iOS App Development', href: '/ios-app-development' },
+      { label: 'Android App Development', href: '/android-app-development' },
       { label: 'Cross-Platform Apps', href: '/cross-platform-apps' },
       { label: 'React Native Apps', href: '/react-native-apps' },
     ]

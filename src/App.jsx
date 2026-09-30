@@ -10,6 +10,8 @@ import Insights from './pages/Insights'
 import BlogArticle from './pages/BlogArticle'
 import Portfolio from './pages/Portfolio'
 import MobileApp from './pages/MobileApp'
+import IosAppDevelopment from './pages/IosAppDevelopment'
+import AndroidAppDevelopment from './pages/AndroidAppDevelopment'
 import Checkout from './pages/Checkout'
 import CrossPlatformApps from './pages/CrossPlatformApps'
 import ReactNativeApps from './pages/ReactNativeApps'
@@ -72,6 +74,8 @@ export default function App() {
         <Route path="/insights/:slug" element={<BlogArticle />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/mobile-app-development" element={<MobileApp />} />
+        <Route path="/ios-app-development" element={<IosAppDevelopment />} />
+        <Route path="/android-app-development" element={<AndroidAppDevelopment />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cross-platform-apps" element={<CrossPlatformApps />} />
         <Route path="/react-native-apps" element={<ReactNativeApps />} />

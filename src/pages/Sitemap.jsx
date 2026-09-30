@@ -19,6 +19,8 @@ const columns = [
     links: [
       { label: 'All Services', href: '/services' },
       { label: 'Mobile App Development', href: '/mobile-app-development' },
+      { label: 'iOS App Development', href: '/ios-app-development' },
+      { label: 'Android App Development', href: '/android-app-development' },
       { label: 'Cross-Platform Apps', href: '/cross-platform-apps' },
       { label: 'React Native Apps', href: '/react-native-apps' },
       { label: 'Enterprise Software', href: '/enterprise-software' },

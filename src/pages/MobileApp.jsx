@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ConsultForm from '../components/ConsultForm'
 import PricingSection from '../components/PricingSection'
-import { Bot, Building, CheckCircle2, DollarSign, Gamepad2, Globe, HeartPulse, Lock, Medal, Phone, RefreshCw, Rocket, Shield, ShoppingCart, Smartphone, Star, TrendingUp } from 'lucide-react'
+import { ArrowRight, Bot, Building, CheckCircle2, Code2, DollarSign, Gamepad2, Globe, HeartPulse, Lock, Medal, Phone, RefreshCw, Rocket, Shield, ShoppingCart, Smartphone, Star, TrendingUp } from 'lucide-react'
 
 const trustBrands = ['MOBIUS','KINDER MORGAN','UTMB','WORLD COOP','camh','SAUDI BELL']
 
@@ -17,14 +17,23 @@ const services = [
   { ic: Gamepad2, h: 'Gaming Apps', p: 'Casual to mid-core mobile games with Unity, Godot, and native game loops.' },
 ]
 
+const platforms = [
+  { ic: Smartphone, h: 'iOS App Development', p: 'Native Swift & SwiftUI apps for iPhone, iPad, and Apple Watch - built for App Store success.', href: '/ios-app-development' },
+  { ic: Bot, h: 'Android App Development', p: 'Kotlin & Jetpack Compose apps for phones, tablets, and foldables - launched on Google Play.', href: '/android-app-development' },
+  { ic: RefreshCw, h: 'Cross-Platform Apps', p: 'One Flutter or React Native codebase shipping to both iOS and Android.', href: '/cross-platform-apps' },
+  { ic: Code2, h: 'React Native Apps', p: 'JavaScript-powered native apps that share logic with your web product.', href: '/react-native-apps' },
+]
+
+const appProcess = [
+  { n: '01', h: 'Discovery & Strategy', p: 'Validate the idea, define users and core features, and choose the right platform.' },
+  { n: '02', h: 'UI/UX Design', p: 'Wireframes and clickable prototypes you can test before any code is written.' },
+  { n: '03', h: 'Agile Development', p: 'Two-week sprints with test builds on your own phone after every sprint.' },
+  { n: '04', h: 'QA & Testing', p: 'Manual and automated testing across real devices, OS versions, and screen sizes.' },
+  { n: '05', h: 'Store Launch', p: 'App Store and Google Play listings, submission, and review handled for you.' },
+  { n: '06', h: 'Support & Growth', p: 'Monitoring, OS updates, analytics, and new features after launch.' },
+]
+
 const portfolioCases = [
-  {
-    ch: 'Oil & Gas / Enterprise',
-    h: 'Kinder Morgan Pipeline App',
-    desc: 'A mission-critical field management and pipeline monitoring app deployed to 2,000+ engineers across North America. Built for Android and iOS with SCADA integration, offline-first architecture, and real-time alerting.',
-    bullets: ['Offline-first for remote field locations', 'Real-time SCADA data visualisation', '60% faster incident response time', 'Zero-downtime deployment strategy'],
-    img: '1714901423336-1884cd3fb50f',
-  },
   {
     ch: 'Gaming / Consumer',
     h: 'Rise Up Kings',
@@ -123,11 +132,51 @@ export default function MobileApp() {
         </div>
       </section>
 
-      {/* PORTFOLIO */}
+      {/* PLATFORMS */}
       <section className="sec" style={{ background: 'var(--gray-bg)', paddingTop: 60 }}>
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow orange">Featured Case Studies</p>
+            <p className="eyebrow orange">Choose Your Platform</p>
+            <h2>Native, Cross-Platform, or Both</h2>
+            <p>Not sure which is right for you? We'll recommend the platform that fits your users, budget, and timeline.</p>
+          </div>
+          <div className="plat-grid">
+            {platforms.map(pl => (
+              <Link key={pl.h} to={pl.href} className="plat">
+                <div className="ic"><pl.ic size={24} strokeWidth={1.75} /></div>
+                <h3>{pl.h}</h3>
+                <p>{pl.p}</p>
+                <span className="more">Learn More <ArrowRight size={15} strokeWidth={2} /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="sec" style={{ background: 'var(--navy)', color: '#fff' }}>
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow" style={{ color: 'var(--orange)' }}>How We Work</p>
+            <h2 style={{ color: '#fff' }}>Our App Development Process</h2>
+          </div>
+          <div className="eng-grid">
+            {appProcess.map(s => (
+              <div key={s.n} className="eng" style={{ background: 'var(--card)' }}>
+                <div className="ic" style={{ fontFamily: 'Poppins', fontWeight: 800, fontSize: 17 }}>{s.n}</div>
+                <h3>{s.h}</h3>
+                <p>{s.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section className="sec" style={{ paddingTop: 60 }}>
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow orange">Featured Case Study</p>
             <h2>Apps That Made Headlines</h2>
           </div>
           {portfolioCases.map(c => (
