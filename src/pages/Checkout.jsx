@@ -128,7 +128,7 @@ export default function Checkout() {
                 {payError && <p className="pay-error">{payError}</p>}
 
                 <p className="agree" style={{ marginTop: 20 }}>
-                  Payments are processed securely by Stripe and PayPal. By completing this purchase you agree to our <a href="#">Terms of Service</a>.
+                  Payments are processed securely by Stripe and PayPal. By completing this purchase you agree to our <Link to="/terms">Terms of Service</Link>.
                 </p>
               </div>
             </div>

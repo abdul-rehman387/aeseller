@@ -116,7 +116,7 @@ export default function Technologies() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Let's Architect Together</p>
               <h2>Need Help Choosing the Right Stack?</h2>
               <p>Our architects will review your requirements and recommend the optimal technology combination for performance, cost, and maintainability.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Tech Consultation</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Tech Consultation</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1639066648921-82d4500abf1a?w=800&q=80" alt="Cloud tech" loading="lazy" />

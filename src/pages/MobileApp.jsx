@@ -80,7 +80,7 @@ export default function MobileApp() {
           <h1>Mobile App Development Company USA</h1>
           <p className="hero-p">We build iOS, Android, and cross-platform apps that users love and businesses depend on. 800+ apps shipped, 98% client retention.</p>
           <div className="hero-btns">
-            <Link to="/" className="btn">Get a Free Quote</Link>
+            <Link to="/contact" className="btn">Get a Free Quote</Link>
             <a href="tel:+18325550190" className="call-link">
               <span className="c"><Phone size={16} strokeWidth={1.75} /></span>
               +1 (832) 555-0190
@@ -301,7 +301,7 @@ export default function MobileApp() {
                   {opt}
                 </div>
               ))}
-              <Link to="/" className="btn" style={{ marginTop: 24, width: '100%', justifyContent: 'center' }}>
+              <Link to="/contact" className="btn" style={{ marginTop: 24, width: '100%', justifyContent: 'center' }}>
                 Get My Free Estimate →
               </Link>
             </div>
@@ -322,7 +322,7 @@ export default function MobileApp() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Start Today</p>
               <h2>Ready to Build Your Mobile App?</h2>
               <p>Our team is ready to start. Let's schedule a free technical discovery call and map out your path to launch.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Call</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Call</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Team" loading="lazy" />

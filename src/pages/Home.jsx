@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import digitalServicesImg from '../assets/Digital-Services.webp'
 import { industries } from '../data/industries'
+import { blogPosts } from '../data/blogPosts'
 import { CONTACT_EMAIL, INFO_EMAIL } from '../data/contact'
 import { ArrowRight, Bot, ChartLine, CheckCircle2, Mail, MapPin, MessageSquare, Phone, RefreshCw, Target, Timer, Workflow } from 'lucide-react'
 
@@ -71,11 +72,7 @@ const engagements = [
 const awards = ['Clutch Top Dev', 'Inc. 5000', 'GoodFirms Leader', 'Deloitte Fast 50', 'G2 Top Rated', 'ISO Certified']
 const partners = ['Microsoft', 'AWS', 'Google Cloud', 'Oracle', 'Salesforce', 'HubSpot']
 
-const blogs = [
-  { h: 'How AI is Transforming Enterprise Software in 2026', p: 'Explore the top AI-driven patterns reshaping how companies build and deploy custom software.', img: '1674027444485-cec3da58eef4' },
-  { h: 'React Native vs Flutter: Which Should You Pick?', p: 'A head-to-head comparison to help you choose the right cross-platform framework for your app.', img: '1480694313141-fce5e697ee25' },
-  { h: 'The Definitive Guide to Hiring a Software Development Partner', p: '10 critical questions every CTO should ask before signing a software outsourcing contract.', img: '1607799279861-4dd421887fb3' },
-]
+const blogs = blogPosts.slice(0, 3)
 
 const aiFeats = [
   { ic: Bot, label: 'AI Agents' },
@@ -99,9 +96,9 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="hero-ov" />
         <div className="wrap">
-          <p className="eyebrow orange">AI & Web3 Automation Agency</p>
-          <h1>AI Agents, Bots & Automation That Work for You</h1>
-          <p className="hero-lead">AE Seller builds custom AI agents, Telegram and Discord bots, workflow automations, and Web3 tooling that run your operations around the clock - alongside the web and mobile products that power them.</p>
+          <p className="eyebrow orange">Software Development Company</p>
+          <h1>Custom Software Development & Digital Solutions</h1>
+          <p className="hero-lead">AE Seller builds custom software, web and mobile apps, SaaS platforms, and cloud infrastructure - with AI agents and workflow automation that keep your operations running around the clock.</p>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <Link to="/services" className="btn">Explore Services</Link>
             <Link to="/portfolio" className="btn btn-ghost">View Portfolio</Link>
@@ -123,8 +120,8 @@ export default function Home() {
         <div className="wrap">
           <div className="head">
             <p className="eyebrow orange">What We Build</p>
-            <h2>AI, Automation & Web3 Services</h2>
-            <p>From autonomous AI agents to crypto trading bots - plus the web and mobile platforms around them - one team covers the full stack.</p>
+            <h2>Software Development & AI Automation Services</h2>
+            <p>From custom software, web, and mobile development to AI agents and automation - one team covers the full stack.</p>
           </div>
           <div className="svc-grid">
             {services.map(s => (
@@ -346,7 +343,7 @@ export default function Home() {
                 <div className="bd">
                   <h3>{b.h}</h3>
                   <p>{b.p}</p>
-                  <span className="more">Read Article →</span>
+                  <Link to={`/insights/${b.slug}`} className="more">Read Article →</Link>
                 </div>
               </div>
             ))}
@@ -393,7 +390,7 @@ export default function Home() {
                     <div className="fld"><input name="email" type="email" value={form.email} onChange={onChange} placeholder="Email Address*" required /></div>
                     <div className="fld"><input name="phone" value={form.phone} onChange={onChange} placeholder="Phone Number" /></div>
                     <div className="fld"><textarea name="message" value={form.message} onChange={onChange} placeholder="Describe your project…" rows={4} /></div>
-                    <p className="agree">By submitting you agree to our <a href="#">Privacy Policy</a>.</p>
+                    <p className="agree">By submitting you agree to our <Link to="/privacy">Privacy Policy</Link>.</p>
                     <div className="submit"><button type="submit" className="btn" style={{ width: '100%', justifyContent: 'center' }}>Send Message →</button></div>
                   </form>
                 </div>

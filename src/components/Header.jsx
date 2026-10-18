@@ -115,7 +115,7 @@ export default function Header() {
       <div className="wrap">
         <nav className="nav">
           <Link to="/" className="logo">
-            <img src={logo} alt="AE Seller Center" />
+            <img src={logo} alt="AE Seller" />
           </Link>
 
           <div className={`menu${menuOpen ? ' open' : ''}`}>

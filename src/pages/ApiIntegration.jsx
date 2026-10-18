@@ -154,7 +154,7 @@ export default function ApiIntegration() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Get Started</p>
               <h2>Ready to Connect Your Stack?</h2>
               <p>Tell us which tools need to talk to each other and we'll map the integration architecture to get there.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="API development" loading="lazy" />
