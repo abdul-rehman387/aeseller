@@ -21,7 +21,7 @@ const page = (path, appHtml) => template
   .replace('<!--seo-head-->', renderHeadHtml(getSeo(path)))
   .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
 
-// "/" -> index.html, "/a/b" -> a/b.html (served at /a/b via cleanUrls on Vercel and Firebase)
+// "/" -> index.html, "/a/b" -> a/b.html (served at /a/b via Firebase Hosting cleanUrls)
 const fileFor = path => (path === '/' ? join(dist, 'index.html') : join(dist, `${path.slice(1)}.html`))
 
 async function emit(file, html) {

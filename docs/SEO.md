@@ -12,7 +12,7 @@ How search-engine metadata, prerendering, sitemaps and monitoring work on aesell
 | Client sync | `src/components/SeoManager.jsx` | Updates `<head>` on client-side navigation. |
 | SSR entry | `src/entry-server.jsx` | Renders the app with `StaticRouter` at build time. |
 | Prerender | `scripts/prerender.mjs` | Writes `dist/<route>.html` (real content + head), `404.html`, `sitemap.xml`, `robots.txt`. |
-| Hosting | `vercel.json`, `middleware.js` | Clean URLs, no trailing slash, real 404s, 301s for legacy equivalents, 410 for old store/blog URLs. |
+| Hosting | `firebase.json`, `.firebaserc` | Firebase Hosting: clean URLs, no trailing slash, real 404s, 301s for legacy equivalents. |
 
 `npm run build` = client build -> SSR build -> prerender. The browser hydrates the prerendered HTML (`src/main.jsx`).
 
@@ -32,21 +32,32 @@ Components must not read `window`/`document` during render (only in effects) or 
 | `npm run build` | Build + prerender + sitemap/robots |
 | `npm run test:seo` | Static checks on `dist/`: titles, descriptions, canonicals, one H1, JSON-LD, OG tags, alt text, internal links, sitemap/noindex consistency |
 | `npm run check` | lint + build + test:seo |
-| `node scripts/seo-live-check.mjs [url]` | Crawl a live/preview deployment: status codes, redirects, legacy 410s, robots/sitemap content types |
+| `node scripts/seo-live-check.mjs [url]` | Crawl a live/preview deployment: status codes, redirects, legacy 404s, robots/sitemap content types |
 | `GSC_CREDENTIALS=key.json node scripts/gsc-report.mjs [--inspect]` | Search Console report (needs owner setup below) |
 
 `.github/workflows/seo-monitor.yml` runs the build checks on every PR and the live check weekly (read-only).
 
 ## Legacy URLs
 
-The domain previously hosted a WooCommerce store and an unrelated blog (~570 URLs in the Wayback Machine). They are handled in `middleware.js` (410 Gone) and `vercel.json` (301 for `/about-us`, `/contact-2`, `/privacy-policy(-2)`, `/terms-and-conditions`, `/blog`; `/brand/ae-seller` -> `/about`). Everything else unknown returns 404 from `404.html`. Never redirect obsolete URLs to the homepage.
+The domain previously hosted a WooCommerce store and an unrelated blog (~570 URLs in the Wayback Machine). `firebase.json` 301-redirects the few with a real equivalent (`/about-us`, `/contact-2`, `/privacy-policy(-2)`, `/terms-and-conditions`, `/blog`, `/brand/ae-seller` -> `/about`). Everything else returns 404 from `404.html` (Firebase Hosting cannot send 410; Google treats 404 the same in practice). Never redirect obsolete URLs to the homepage.
 
-## Deploy verification (after approval)
+## Hosting: Firebase (project `ae-seler`, free Spark plan)
 
-1. Deploy to a Vercel **preview** first; run `node scripts/seo-live-check.mjs <preview-url>`. Confirm `/shop` returns 410 (middleware active) and `/nope` returns 404.
-2. In Vercel > Domains: attach `www.aeseller.com` to this project with a redirect to `aeseller.com` (it currently points at a different project and returns 500).
-3. Promote to production; run `node scripts/seo-live-check.mjs` - all checks should pass.
-4. Submit `https://aeseller.com/sitemap.xml` in Search Console.
+Spark limits: 10 GB storage, ~360 MB/day transfer. The site is ~47 MB; the heaviest page is /portfolio (~8 MB of PNGs), so compress those images to stay well inside the daily limit.
+
+**One-time GitHub deploy setup** (lets the workflows deploy):
+1. `npx firebase-tools login`
+2. `npx firebase-tools init hosting:github` in this repo - choose `abdul-rehman387/aeseller`. It creates a service account and stores it as a GitHub secret; make sure the secret is named `FIREBASE_SERVICE_ACCOUNT_AE_SELER` (the name the workflows use) and **decline** its offer to overwrite the existing workflow files and `firebase.json`.
+3. Every PR now gets a preview URL (`ae-seler--pr...web.app`); every merge to `main` deploys to live (`ae-seler.web.app`).
+
+Manual deploy instead: `npm run build && npx firebase-tools deploy --only hosting`.
+
+**Custom domain from Hostinger** (only after the live `ae-seler.web.app` looks right):
+1. Firebase console > Hosting > **Add custom domain** > `aeseller.com`.
+2. Copy the TXT record and A record(s) Firebase shows. In Hostinger hPanel > Domains > DNS / Nameservers > DNS records: **delete** the old `@` A record (216.198.79.1, Vercel) and any `@` AAAA record, then add Firebase's TXT and A records exactly as shown.
+3. Add `www.aeseller.com` as a second custom domain, choose **Redirect to aeseller.com**, and add the record Firebase shows for `www` (replace the existing www CNAME).
+4. DNS + SSL usually take from minutes up to 24 hours. Then run `node scripts/seo-live-check.mjs` - all checks should pass - and submit `https://aeseller.com/sitemap.xml` in Search Console.
+5. Disconnect the old Vercel project (Vercel > Project > Settings > Git > Disconnect, then delete the project) so it stops commenting on PRs.
 
 ## Search Console API setup (owner)
 
@@ -57,7 +68,7 @@ The domain previously hosted a WooCommerce store and an unrelated blog (~570 URL
 
 ## Rollback
 
-All changes are build-time. To revert prerendering only: set `"build": "vite build"` in `package.json` and restore the catch-all rewrite `{ "source": "/(.*)", "destination": "/index.html" }` in `vercel.json` (this also restores the soft-404 problem).
+All changes are build-time. To revert prerendering only: set `"build": "vite build"` in `package.json` and restore the catch-all rewrite `{ "source": "**", "destination": "/index.html" }` in `firebase.json` (this also restores the soft-404 problem).
 
 ## Changelog - 2026-10-18 SEO implementation
 
@@ -66,7 +77,7 @@ All changes are build-time. To revert prerendering only: set `"build": "vite bui
 - `src/components/SeoManager.jsx` - client head sync.
 - `src/pages/NotFound.jsx` + catch-all route - real 404 page (noindex).
 - `src/entry-server.jsx`, `scripts/prerender.mjs` - static HTML per route, `404.html`, `sitemap.xml`, `robots.txt`.
-- `middleware.js` - 410 for legacy store/blog URLs, `/brand/ae-seller` -> `/about`.
+- `src/lib/firebase.js` - Firebase app initialization (project `ae-seler`); `firebase` npm package.
 - `scripts/seo-check.mjs`, `scripts/seo-live-check.mjs`, `scripts/gsc-report.mjs`, `.github/workflows/seo-monitor.yml`.
 
 **Changed**
@@ -79,5 +90,5 @@ All changes are build-time. To revert prerendering only: set `"build": "vite bui
 - `src/pages/Checkout.jsx` - Terms link fixed (`href="#"`).
 - `Header.jsx`, `Footer.jsx` - logo alt "AE Seller Center" -> "AE Seller".
 - `public/portfolio/*/*.html` (6 demo bundles) - `noindex` meta added.
-- `vercel.json`, `firebase.json` - cleanUrls, no trailing slash, removed catch-all rewrite, legacy 301s, asset caching; www -> apex redirect.
+- `firebase.json`, `.firebaserc`, Firebase workflows - hosting moved from Vercel to Firebase project `ae-seler`; cleanUrls, no trailing slash, removed catch-all rewrite, legacy 301s, asset caching. `vercel.json` removed.
 - `package.json` - build pipeline, `test:seo`, `check` scripts. `.gitignore` - GSC keys and reports.

@@ -1,7 +1,7 @@
 // Checks the LIVE site's crawl behaviour: status codes, redirects, robots.txt,
 // sitemap, canonicals, and legacy URL handling. Read-only (GET/HEAD requests).
 //   node scripts/seo-live-check.mjs                     # https://aeseller.com
-//   node scripts/seo-live-check.mjs https://preview-url.vercel.app
+//   node scripts/seo-live-check.mjs https://ae-seler.web.app
 import { appendFileSync } from 'node:fs'
 
 const base = (process.argv[2] || 'https://aeseller.com').replace(/\/$/, '')
@@ -66,9 +66,9 @@ if (isProd) {
 
 // legacy store/blog URLs
 for (const [path, expected] of [
-  ['/shop/', [301, 308, 410]], ['/shop', 410], ['/product/anything', 410], ['/product-category/electronics', 410],
-  ['/product-tag/iphone', 410], ['/brand/starlet', 410], ['/cart', 410], ['/my-account', 410],
-  ['/best-gadgets-in-uae-2025-top-tech-you-must-have-this-year', 410],
+  ['/shop/', [301, 308, 404]], ['/shop', 404], ['/product/anything', 404], ['/product-category/electronics', 404],
+  ['/product-tag/iphone', 404], ['/brand/starlet', 404], ['/cart', 404], ['/my-account', 404],
+  ['/best-gadgets-in-uae-2025-top-tech-you-must-have-this-year', 404],
 ]) await expectStatus(path, expected, 'legacy URL gone')
 await expectStatus('/brand/ae-seller', 301, 'brand page redirects')
 await expectStatus('/about-us', 301, 'legacy about redirects')

@@ -29,3 +29,6 @@ dist-ssr
 # SEO tooling - never commit Search Console credentials
 gsc-service-account*.json
 seo-reports/
+
+# Firebase CLI cache
+.firebase/
