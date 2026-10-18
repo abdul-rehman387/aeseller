@@ -19,6 +19,8 @@ export default function middleware(request) {
 }
 
 export const config = {
+  // Vercel deprecated the edge runtime for Routing Middleware; Node.js is the supported default.
+  runtime: 'nodejs',
   matcher: [
     // WooCommerce / WordPress structures
     '/product/:path*', '/product-category/:path*', '/product-tag/:path*', '/brand/:path*',
