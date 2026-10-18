@@ -154,7 +154,7 @@ export default function ReactNativeApps() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Get Started</p>
               <h2>Ready to Build Your React Native App?</h2>
               <p>Let's scope your app, pick the right native modules, and map a path to launch on both app stores.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Team" loading="lazy" />

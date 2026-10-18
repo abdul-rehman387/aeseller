@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="ready">
           <p className="small">READY TO START?</p>
           <h2>Let's Build Something<br /><span style={{color:'var(--orange)'}}>Extraordinary</span> Together</h2>
-          <Link to="/" className="btn">Start Your Project</Link>
+          <Link to="/contact" className="btn">Start Your Project</Link>
         </div>
 
         <div className="fcols">
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="fbottom">
           <div className="fbottom-brand">
-            <img src={logo} alt="AE Seller Center" className="fbottom-logo" />
+            <img src={logo} alt="AE Seller" className="fbottom-logo" />
             <p>© AE Seller 2026. All rights reserved.</p>
           </div>
           <div className="links">

@@ -93,7 +93,7 @@ export default function Portfolio() {
                 <li><span>50k+ active monthly users on the platform</span></li>
                 <li><span>4-month MVP delivery timeline</span></li>
               </ul>
-              <Link to="/" className="btn btn-orange">Discuss Your Project →</Link>
+              <Link to="/contact" className="btn btn-orange">Discuss Your Project →</Link>
             </div>
             <div className="case-img">
               <img src="https://images.unsplash.com/photo-1516031190212-da133013de50?w=700&q=80" alt="FinTrack analytics dashboard" loading="lazy" />

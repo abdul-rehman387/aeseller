@@ -6,10 +6,21 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      { "source": "/about-us", "destination": "/about", "type": 301 },
+      { "source": "/contact-2", "destination": "/contact", "type": 301 },
+      { "source": "/privacy-policy", "destination": "/privacy", "type": 301 },
+      { "source": "/privacy-policy-2", "destination": "/privacy", "type": 301 },
+      { "source": "/terms-and-conditions", "destination": "/terms", "type": 301 },
+      { "source": "/blog", "destination": "/insights", "type": 301 },
+      { "source": "/brand/ae-seller", "destination": "/about", "type": 301 }
+    ],
+    "headers": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/assets/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
       }
     ]
   }

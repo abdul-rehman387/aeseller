@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import SeoManager from './components/SeoManager'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Industries from './pages/Industries'
@@ -12,7 +13,8 @@ import Portfolio from './pages/Portfolio'
 import MobileApp from './pages/MobileApp'
 import IosAppDevelopment from './pages/IosAppDevelopment'
 import AndroidAppDevelopment from './pages/AndroidAppDevelopment'
-import Checkout from './pages/Checkout'
+// Lazy so Stripe.js / PayPal SDKs load only on /checkout, not on every page.
+const Checkout = lazy(() => import('./pages/Checkout'))
 import CrossPlatformApps from './pages/CrossPlatformApps'
 import ReactNativeApps from './pages/ReactNativeApps'
 import EnterpriseSoftware from './pages/EnterpriseSoftware'
@@ -53,6 +55,7 @@ import About from './pages/About'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Sitemap from './pages/Sitemap'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -60,10 +63,12 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+// Route tree shared by the browser entry (main.jsx) and the build-time prerenderer (entry-server.jsx).
+export function AppRoutes() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
+      <SeoManager />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -76,7 +81,7 @@ export default function App() {
         <Route path="/mobile-app-development" element={<MobileApp />} />
         <Route path="/ios-app-development" element={<IosAppDevelopment />} />
         <Route path="/android-app-development" element={<AndroidAppDevelopment />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Suspense fallback={null}><Checkout /></Suspense>} />
         <Route path="/cross-platform-apps" element={<CrossPlatformApps />} />
         <Route path="/react-native-apps" element={<ReactNativeApps />} />
         <Route path="/enterprise-software" element={<EnterpriseSoftware />} />
@@ -117,8 +122,17 @@ export default function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/sitemap" element={<Sitemap />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </Router>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }

@@ -154,7 +154,7 @@ export default function LegacyModernization() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Get Started</p>
               <h2>Ready to Retire Your Legacy Risk?</h2>
               <p>Tell us what system is holding you back and we'll map a modernization path that doesn't put the business on hold.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&q=80" alt="Server infrastructure" loading="lazy" />

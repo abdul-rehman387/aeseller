@@ -153,7 +153,7 @@ export default function SocialMediaMarketing() {
               <p className="eyebrow" style={{ color: 'var(--orange)', marginBottom: 12 }}>Get Started</p>
               <h2>Ready to Grow a Real Audience?</h2>
               <p>Tell us which platforms matter most to your customers and we'll map a content strategy built for growth.</p>
-              <Link to="/" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
+              <Link to="/contact" className="btn" style={{ background: 'var(--orange)' }}>Book a Free Consultation</Link>
             </div>
             <div className="pic">
               <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80" alt="Team" loading="lazy" />
